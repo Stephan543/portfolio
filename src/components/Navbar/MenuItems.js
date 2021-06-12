@@ -2,31 +2,31 @@ export const MenuItems = [
     {
         title: 'About Me',
         url: '#',
-        cName: 'nav-Links'
+        cName: 'nav-links'
     },
     {
         title: 'Projects',
         url: '#',
-        cName: 'nav-Links'
+        cName: 'nav-links'
     },
     {
         title: 'Skills',
         url: '#',
-        cName: 'nav-Links'
+        cName: 'nav-links'
     },
     {
         title: 'Experiences',
         url: '#',
-        cName: 'nav-Links'
+        cName: 'nav-links'
     },
     {
         title: 'CV Download',
         url: '#',
-        cName: 'nav-Links'
+        cName: 'nav-links'
     },
     {
         title: 'Sign Up',
         url: '#',
-        cName: 'nav-Links-mobile'
+        cName: 'nav-links-mobile'
     }
 ]
