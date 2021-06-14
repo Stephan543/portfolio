@@ -33,7 +33,7 @@ class DarkModeToggle extends Component {
 
     render(){
         return (
-            <button onClick={this.handleModeChange}>Change Mode</button>
+            <button className="btn btn--small" onClick={this.handleModeChange}>Change Mode</button>
         );
     }
 }

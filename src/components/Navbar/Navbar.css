@@ -7,7 +7,7 @@
     font-size: 1.2rem;
 }
 
-.navbar-logo{
+.navbar-button{
     color: #fff;
     justify-self: start;
     margin-left: 20px;
@@ -91,7 +91,7 @@
         border-radius: 0;
     }
 
-    .navbar-logo {
+    .navbar-button {
         position: absolute;
         top: 0;
         left: 0;
@@ -132,7 +132,7 @@
         transition: 250ms;
     }
 
-    Button {
+    .cv-download {
         display: none;
     }
 }
