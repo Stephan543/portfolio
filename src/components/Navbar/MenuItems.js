@@ -18,5 +18,10 @@ export const MenuItems = [
         title: 'Experiences',
         url: '#',
         cName: 'nav-links'
+    },
+    {
+        title: 'Download CV',
+        url: '#',
+        cName: 'nav-links-mobile'
     }
 ]
