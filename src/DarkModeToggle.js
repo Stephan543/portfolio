@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import './style.scss'
+import Switch from '@material-ui/core/Switch';
+import { WbSunnyIcon } from '@material-ui/icons/WbSunny';
+import { createMuiTheme } from '@material-ui/core';
 
 class DarkModeToggle extends Component {
     constructor(props){
@@ -30,10 +33,20 @@ class DarkModeToggle extends Component {
         localStorage.setItem('DARK_MODE', !this.state.darkMode); // Save on clients storage
     
     }
-
+    // const theme = createMuiTheme({
+    //     props: {
+    //       checkedIcon: {
+    //           WbSunnyIcon
+    //       }  
+    //     }
+    // })
     render(){
         return (
-            <button className="btn btn--small" onClick={this.handleModeChange}>Change Mode</button>
+            // <button className="btn btn--small" onClick={this.handleModeChange}>Change Mode</button>
+            <Switch 
+            onChange={this.handleModeChange}
+            // icon={this.Brightness4Icon}
+            />
         );
     }
 }
