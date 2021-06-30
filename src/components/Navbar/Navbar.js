@@ -4,6 +4,19 @@ import { Button } from '../Button'
 import './Navbar.css'
 import DarkModeToggle from '../../DarkModeToggle';
 
+import stephanCV from '../../CV/Stephan_Iskander_Resume.pdf';
+
+// React router
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
+import {Home} from "../Pages/Home";
+
+
 // New Material ui dependencies
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -70,7 +83,8 @@ class Navbar extends Component {
 
     render(){
         return(
-            <nav className="NavbarItems">
+            <Router>
+                <nav className="NavbarItems">
                 {/* <h1 className="navbar-logo">React<i className="fab fa-react"></i></h1> */}
                 <h1 className="navbar-button">
                     <DarkModeToggle />
@@ -82,15 +96,27 @@ class Navbar extends Component {
                     {MenuItems.map((item, index) => {
                         return(
                             <li key={index}>
-                                <a className={item.cName} href={item.url}>
+                            <Link className={item.cName} to={item.url}>{item.title}</Link>
+                                {/* <a className={item.cName} href={item.url}>
                                     {item.title}
-                                </a>
+                                </a> */}
                             </li>
                         )
                     })}
                 </ul>
-                <Button>Download CV</Button>
-            </nav>
+                <a href={stephanCV} target="_blank" rel="noopener noreferrer">
+                    <Button>Download CV</Button>
+                </a>
+
+                </nav>
+
+                {/* Look through switches routes and renders the first match; */}
+                <Switch>
+                    <Route path="/Home">
+                        <Home />
+                    </Route>
+                </Switch>
+            </Router>
         )
     }
 }
