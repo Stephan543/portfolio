@@ -1,15 +1,19 @@
 import React from 'react'
 import './App.css';
-import  WbSunnyIcon from '@material-ui/icons/WbSunny';
-
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography'
 import Navbar from './components/Navbar/Navbar';
+import { darkTheme, lightTheme } from './Theme';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      hi
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <div className="App">
+        <Navbar />
+        <Typography  color='primary'>Hello</Typography>
+      </div> 
+    </ThemeProvider>
+    
   );
 }
 
