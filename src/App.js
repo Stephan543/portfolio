@@ -5,12 +5,12 @@ import Typography from '@material-ui/core/Typography'
 import Navbar from './components/Navbar/Navbar';
 import { darkTheme, lightTheme } from './Theme';
 
+
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className="App">
         <Navbar />
-        <Typography  color='primary'>Hello</Typography>
       </div> 
     </ThemeProvider>
     
