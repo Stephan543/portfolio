@@ -4,7 +4,7 @@ import { Button } from '../Button'
 import './Navbar.css'
 import DarkModeToggle from '../../DarkModeToggle';
 
-import stephanCV from '../../CV/Stephan_Iskander_Resume.pdf';
+import stephanCV from '../../Static/Stephan_Iskander_Resume.pdf';
 
 // React router
 import {
