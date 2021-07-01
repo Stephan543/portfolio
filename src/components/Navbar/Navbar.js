@@ -14,7 +14,10 @@ import {
     Link
   } from "react-router-dom";
 
-import {Home} from "../Pages/Home";
+import {About} from "../Pages/About";
+import {Experience} from "../Pages/Experience";
+import {Skills} from "../Pages/Skills";
+import {Projects} from "../Pages/Projects";
 
 
 // New Material ui dependencies
@@ -96,10 +99,9 @@ class Navbar extends Component {
                     {MenuItems.map((item, index) => {
                         return(
                             <li key={index}>
-                            <Link className={item.cName} to={item.url}>{item.title}</Link>
-                                {/* <a className={item.cName} href={item.url}>
+                                <a className={item.cName} href={item.url}>
                                     {item.title}
-                                </a> */}
+                                </a>
                             </li>
                         )
                     })}
@@ -107,14 +109,14 @@ class Navbar extends Component {
                 <a href={stephanCV} target="_blank" rel="noopener noreferrer">
                     <Button>Download CV</Button>
                 </a>
-
                 </nav>
 
                 {/* Look through switches routes and renders the first match; */}
                 <Switch>
-                    <Route path="/Home">
-                        <Home />
-                    </Route>
+                    <Route exact path="/" component={About} />
+                    <Route exact path="/Skills" component={Skills} />
+                    <Route exact path="/Experience" component={Experience} />
+                    <Route exact path="/Projects" component={Projects} />
                 </Switch>
             </Router>
         )
