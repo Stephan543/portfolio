@@ -19,7 +19,6 @@ import {Experience} from "../Pages/Experience";
 import {Skills} from "../Pages/Skills";
 import {Projects} from "../Pages/Projects";
 
-
 // New Material ui dependencies
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -76,6 +75,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 //         </div>
 //     )
 // }
+
 class Navbar extends Component {
     state = { clicked: false }
 
@@ -87,7 +87,7 @@ class Navbar extends Component {
     render(){
         return(
             <Router>
-                <nav className="NavbarItems">
+                <nav className="NavbarItems" color='secondary'>
                 {/* <h1 className="navbar-logo">React<i className="fab fa-react"></i></h1> */}
                 <h1 className="navbar-button">
                     <DarkModeToggle />
