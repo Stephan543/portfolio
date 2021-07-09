@@ -6,15 +6,15 @@ import DarkModeToggle from '../../DarkModeToggle';
 
 import stephanCV from '../../Static/Stephan_Iskander_Resume.pdf';
 
-// // React router
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link
-//   } from "react-router-dom";
+// React router
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
-import {About} from "../Pages/About";
+import About from "../Pages/About";
 import {Experience} from "../Pages/Experience";
 import {Skills} from "../Pages/Skills";
 import {Projects} from "../Pages/Projects";
@@ -125,6 +125,7 @@ import {Projects} from "../Pages/Projects";
 
 import React, { useState } from 'react'
 import { 
+    Box,
     Button, Menu, MenuItem, MenuList, useMediaQuery, useTheme
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
@@ -134,6 +135,7 @@ import { Typography } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 import MenuIcon from "@material-ui/icons/Menu"
 import { Tab, Tabs } from '@material-ui/core';
+import DrawerComponent from './DrawerComponent';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -164,6 +166,7 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
     const classes = useStyles();
     const [anchorEl, setAnchorEL] = useState(null);
+    const [selectedTab, setselectedTab] = useState(0)
 
     const handleClick = (event) => {
         setAnchorEL(event.currentTarget);
@@ -173,35 +176,44 @@ const Navbar = () => {
         setAnchorEL(null);
     };
 
+    const handleChange = (event, newValue) => {
+        setselectedTab(newValue)
+    };
+
 
 
     // Breakpoints
-    const theme = useTheme();
     const [value, setValue] = useState(0);
 
     const handleClickTab = (e, newValue) => {
         setValue(newValue)
     };
 
-    return (
-    
-        <div className={classes.root}>
-            <AppBar color='primary' position="fixed">
-                <Toolbar>
-                    <Typography>
-                        <DarkModeToggle/>
-                    </Typography>
-                    <Tabs className={classes.tabsContainer} onChange={handleClickTab} indicatorColor='secondary' value={value}>
-                        {MenuItems.map((item, index) =>
-                            <Tab value={index} label={item.title}/>
-                        )}
-                    </Tabs>
-                    <Button className={classes.downloadButton} color='secondary' variant='contained'>Download CV</Button>
-                </Toolbar>
-            </AppBar>
-        </div>
-        
-    );
+        return (
+                <div className={classes.root}>
+                    <AppBar color='primary' position="static">
+                        <Toolbar>
+                            <Typography>
+                                <DarkModeToggle/>
+                            </Typography>
+                            <>
+                                <DrawerComponent/>
+                            </>
+                            <Tabs className={classes.tabsContainer} onChange={handleChange} indicatorColor='secondary' value={selectedTab}>
+                                {MenuItems.map((item, index) =>
+                                    <Tab value={index} label={item.title}/>
+                                )}
+                            </Tabs>
+                            <Button className={classes.downloadButton} color='secondary' variant='contained'>Download CV</Button>
+                        </Toolbar>
+                    </AppBar>
+                    {selectedTab === 0 && <About />}
+                    {selectedTab === 1 && <Projects />}
+                    {selectedTab === 2 && <Skills />}
+                    {selectedTab === 3 && <Experience />}
+                    
+                </div>
+        );
 }
 
 export default Navbar
