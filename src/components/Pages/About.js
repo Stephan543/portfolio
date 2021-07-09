@@ -26,13 +26,15 @@ const useStyles = makeStyles((theme) => ({
 //     )
 //   }
 
-export function About(){
+const About = () => {
     const classes = useStyles();
 
     return(
-
         <div className={classes.root}>
             <Avatar alt="Stephan Iskander" src={Pic} className={classes.large}></Avatar>
+            Hello
         </div>
         );
 }
+
+export default About;
