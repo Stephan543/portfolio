@@ -19,9 +19,9 @@ export const MenuItems = [
         url: '/Experience',
         cName: 'nav-links'
     },
-    {
-        title: 'Download CV',
-        url: '#',
-        cName: 'nav-links-mobile'
-    }
+    // {
+    //     title: 'Download CV',
+    //     url: '#',
+    //     cName: 'nav-links-mobile'
+    // }
 ]
