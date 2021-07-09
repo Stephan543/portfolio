@@ -8,8 +8,10 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createTheme } from '@material-ui/core/styles';
 import {theme} from './Theme.js'
 import { CssBaseline, Paper } from '@material-ui/core'
+import { Route, Switch, Redirect  } from 'react-router-dom';
+import About from "./components/Pages/About"
 
-function App() {
+const App = () => {
   // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark');
   // const theme = React.useMemo(
   //   () =>
@@ -22,12 +24,14 @@ function App() {
   // );
 
   return (
-    <ThemeProvider theme={theme}>
-    <CssBaseline/>
-    <Navbar />
-      <Navbar />
-      Helooo
-    </ThemeProvider> 
+    <Switch>
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <Navbar />
+
+        {/* <Route exact path="/" render={props => <About {...props}/>}/> */}
+      </ThemeProvider> 
+  </Switch>
   );
 }
 
