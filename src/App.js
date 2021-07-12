@@ -8,7 +8,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createTheme } from '@material-ui/core/styles';
 import {theme} from './Theme.js'
 import { CssBaseline, Paper } from '@material-ui/core'
-import { Route, Switch, Redirect  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-dom';
 import About from "./components/Pages/About"
 
 const App = () => {
@@ -24,14 +24,12 @@ const App = () => {
   // );
 
   return (
-    <Switch>
       <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <Navbar />
+        <Navbar theme={theme}/>
 
         {/* <Route exact path="/" render={props => <About {...props}/>}/> */}
       </ThemeProvider> 
-  </Switch>
   );
 }
 

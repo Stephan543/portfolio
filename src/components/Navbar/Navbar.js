@@ -158,13 +158,22 @@ const useStyles = makeStyles((theme) => ({
             background: '#fff',
             color: '#6568F4',
         },
-
-    }
+    },
+    downloadButtonResponsive: {  
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        color: '#fff',
+        '&:hover': {
+            background: '#fff',
+            color: '#6568F4',
+        },
+    },
 }));
 
 
 const Navbar = () => {
     const classes = useStyles();
+    const theme = useTheme();
     const [anchorEl, setAnchorEL] = useState(null);
     const [selectedTab, setselectedTab] = useState(0)
 
@@ -189,6 +198,10 @@ const Navbar = () => {
         setValue(newValue)
     };
 
+
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+
         return (
                 <div className={classes.root}>
                     <AppBar color='primary' position="static">
@@ -196,17 +209,29 @@ const Navbar = () => {
                             <Typography>
                                 <DarkModeToggle/>
                             </Typography>
-                            <>
-                                <DrawerComponent/>
-                            </>
-                            <Tabs className={classes.tabsContainer} onChange={handleChange} indicatorColor='secondary' value={selectedTab}>
+                            
+                            {/* <DrawerComponent/> */}
+                            
+                            {!isMobile && <Tabs className={classes.tabsContainer} onChange={handleChange} indicatorColor='secondary' value={selectedTab}>
                                 {MenuItems.map((item, index) =>
                                     <Tab value={index} label={item.title}/>
                                 )}
                             </Tabs>
-                            <Button className={classes.downloadButton} color='secondary' variant='contained'>Download CV</Button>
+                            
+                            }
+                            
+                            <Button className={isMobile ? classes.downloadButtonResponsive: classes.downloadButton} color='secondary' variant='contained'>Download CV</Button>
+                            
+                            {isMobile &&
+                            
+                                <MenuIcon/>
+                                
+                            
+                            }
+                        
                         </Toolbar>
                     </AppBar>
+                    
                     {selectedTab === 0 && <About />}
                     {selectedTab === 1 && <Projects />}
                     {selectedTab === 2 && <Skills />}
