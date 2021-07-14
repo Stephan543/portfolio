@@ -132,8 +132,6 @@ import { makeStyles } from '@material-ui/styles';
 import { AppBar } from '@material-ui/core';
 import { Toolbar } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
-import { IconButton } from '@material-ui/core';
-import MenuIcon from "@material-ui/icons/Menu"
 import { Tab, Tabs } from '@material-ui/core';
 import DrawerComponent from './DrawerComponent';
 
@@ -217,16 +215,13 @@ const Navbar = () => {
                                     <Tab value={index} label={item.title}/>
                                 )}
                             </Tabs>
-                            
                             }
                             
-                            <Button className={isMobile ? classes.downloadButtonResponsive: classes.downloadButton} color='secondary' variant='contained'>Download CV</Button>
+                            
+                            <Button href={stephanCV} target="_blank" rel="noopener noreferrer" className={isMobile ? classes.downloadButtonResponsive: classes.downloadButton} color='secondary' variant='contained'>Download CV</Button>
                             
                             {isMobile &&
-                            
-                                <MenuIcon/>
-                                
-                            
+                                <DrawerComponent/>
                             }
                         
                         </Toolbar>
