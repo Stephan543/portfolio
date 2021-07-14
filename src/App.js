@@ -9,7 +9,7 @@ import { createTheme } from '@material-ui/core/styles';
 import {theme} from './Theme.js'
 import { CssBaseline, Paper } from '@material-ui/core'
 import { BrowserRouter as Router, Route, Switch, Redirect  } from 'react-router-dom';
-import About from "./components/Pages/About"
+
 
 const App = () => {
   // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark');
@@ -26,9 +26,11 @@ const App = () => {
   return (
       <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <Navbar theme={theme}/>
+        {/* <Navbar theme={theme} />  */}
 
-        {/* <Route exact path="/" render={props => <About {...props}/>}/> */}
+        <Route exact path="/:page?" render={props => <Navbar {...props}/>}/>
+        
+      
       </ThemeProvider> 
   );
 }

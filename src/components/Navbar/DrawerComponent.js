@@ -3,9 +3,16 @@ import { Drawer, IconButton, makeStyles, List, ListItem, ListItemText, ListItemI
 import { MenuItems } from './MenuItems';
 import { useState } from 'react';
 import MenuIcon from "@material-ui/icons/Menu"
+import { withRouter } from 'react-router';
 
-const DrawerComponent = () => {
+import About from "../Pages/About";
+import {Experience} from "../Pages/Experience";
+import {Skills} from "../Pages/Skills";
+import {Projects} from "../Pages/Projects";
+import { FaLess } from 'react-icons/fa';
 
+const DrawerComponent = props => {
+    const { history } = props;
     const useStyles = makeStyles(theme => ({
         drawerContainer: {},
     }))
@@ -19,6 +26,11 @@ const DrawerComponent = () => {
         setOpenDrawer(open);
     }
 
+    const routeItem = (path) => {
+        history.push(path);
+        setOpenDrawer(false);
+    };
+
     const classes = useStyles();
 
     return (
@@ -30,7 +42,7 @@ const DrawerComponent = () => {
                 anchor='right'>
                 <List>
                     {MenuItems.map((item, index) => (
-                            <ListItem onClick={() => setOpenDrawer(false)} key={item.title} divider button>
+                            <ListItem onClick={() => routeItem(item.url)} key={item.title} divider button>
                                 <ListItemIcon>
                                         <ListItemText primary={item.title}/>
                                 </ListItemIcon>
@@ -45,4 +57,4 @@ const DrawerComponent = () => {
     );
 };
 
-export default DrawerComponent;
+export default withRouter(DrawerComponent);

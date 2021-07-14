@@ -14,11 +14,6 @@ import {
     Link
   } from "react-router-dom";
 
-import About from "../Pages/About";
-import {Experience} from "../Pages/Experience";
-import {Skills} from "../Pages/Skills";
-import {Projects} from "../Pages/Projects";
-
 // // New Material ui dependencies
 // import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core";
 // import AppBar from "@material-ui/core/AppBar";
@@ -134,6 +129,12 @@ import { Toolbar } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import { Tab, Tabs } from '@material-ui/core';
 import DrawerComponent from './DrawerComponent';
+import { withRouter } from 'react-router';
+
+import About from "../Pages/About";
+import {Experience} from "../Pages/Experience";
+import {Skills} from "../Pages/Skills";
+import {Projects} from "../Pages/Projects";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -169,25 +170,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Navbar = () => {
+const Navbar = props => {
     const classes = useStyles();
     const theme = useTheme();
     const [anchorEl, setAnchorEL] = useState(null);
     const [selectedTab, setselectedTab] = useState(0)
 
-    const handleClick = (event) => {
-        setAnchorEL(event.currentTarget);
-    };
+    // const handleClick = (event) => {
+    //     setAnchorEL(event.currentTarget);
+    // };
 
-    const handleClose = () =>{
-        setAnchorEL(null);
-    };
+    // const handleClose = () =>{
+    //     setAnchorEL(null);
+    // };
 
     const handleChange = (event, newValue) => {
         setselectedTab(newValue)
+        
     };
 
-
+    // const handleCallToRouter = (path, newValue) => {
+    //     history.push(path);
+    //     setselectedTab(newValue)
+    // }
 
     // Breakpoints
     const [value, setValue] = useState(0);
@@ -227,6 +232,7 @@ const Navbar = () => {
                         </Toolbar>
                     </AppBar>
                     
+
                     {selectedTab === 0 && <About />}
                     {selectedTab === 1 && <Projects />}
                     {selectedTab === 2 && <Skills />}
@@ -236,4 +242,4 @@ const Navbar = () => {
         );
 }
 
-export default Navbar
+export default withRouter(Navbar)

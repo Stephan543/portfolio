@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 //     )
 //   }
 
-const About = () => {
+const About = props => {
     const classes = useStyles();
 
     return(
