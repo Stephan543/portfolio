@@ -4,7 +4,7 @@ import { createMuiTheme, makeStyles} from '@material-ui/core/styles';
   
   export const theme = createMuiTheme({
     palette: {
-      type: 'light',
+      type: 'dark',
       primary: {
         // Purple and green play nicely together.
         main: 'rgba(73,63,252,1)',
@@ -13,5 +13,5 @@ import { createMuiTheme, makeStyles} from '@material-ui/core/styles';
         main: '#3acbf7',
       },
     },
-    spacing: 24,
+    // spacing: 24,
   });
