@@ -1,7 +1,8 @@
-import React from 'react'
-import { Drawer, IconButton, makeStyles, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core'
-import { MenuItems } from './MenuItems'
-import { useState } from 'react'
+import React from 'react';
+import { Drawer, IconButton, makeStyles, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
+import { MenuItems } from './MenuItems';
+import { useState } from 'react';
+import MenuIcon from "@material-ui/icons/Menu"
 
 const DrawerComponent = () => {
 
@@ -21,22 +22,26 @@ const DrawerComponent = () => {
     const classes = useStyles();
 
     return (
-    <Drawer
-        classes={{ paper: classes.drawerContainer }}
-        open={openDrawer}
-        onClose={toggleDrawer(false)}
-        anchor='right'>
-           <List>
-               {MenuItems.map((item, index) => (
-                    <ListItem onClick={() => setOpenDrawer(false)} key={item.title} divider button>
-                        <ListItemIcon>
-                                <ListItemText primary={item.title}/>
-                        </ListItemIcon>
-                    </ListItem>
-               ))};
-               
-           </List>
-    </Drawer>
+        <>
+            <Drawer
+                // classes={{ paper: classes.drawerContainer }}
+                open={openDrawer}
+                onClose={toggleDrawer(false)}
+                anchor='right'>
+                <List>
+                    {MenuItems.map((item, index) => (
+                            <ListItem onClick={() => setOpenDrawer(false)} key={item.title} divider button>
+                                <ListItemIcon>
+                                        <ListItemText primary={item.title}/>
+                                </ListItemIcon>
+                            </ListItem>
+                    ))};
+                </List>
+            </Drawer>
+            <IconButton onClick={()=> setOpenDrawer(!openDrawer)}>
+                <MenuIcon />
+            </IconButton>
+        </>
     );
 };
 
