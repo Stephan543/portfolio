@@ -171,10 +171,36 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Navbar = props => {
+    
+    // Getting react router nested obj
+    const { match, history } = props;
+    const { params } = match; 
+    const { page } = params;
+
+    console.log(page);
+
+
+    // The following objects are maps that allow the path lookup for the router and Tab function to work together
+    const tabNameToIndex = {
+        0: "about",
+        1: "projects",
+        2: "skills",
+        3: "experience"
+    }
+
+    const indexToTabName = {
+        "about" : 0,
+        "projects" : 1,
+        "skills" : 2, 
+        "experience" : 3
+    }
+
     const classes = useStyles();
     const theme = useTheme();
     const [anchorEl, setAnchorEL] = useState(null);
-    const [selectedTab, setselectedTab] = useState(0)
+    
+    
+    const [selectedTab, setselectedTab] = useState(indexToTabName[page]);
 
     // const handleClick = (event) => {
     //     setAnchorEL(event.currentTarget);
@@ -185,7 +211,8 @@ const Navbar = props => {
     // };
 
     const handleChange = (event, newValue) => {
-        setselectedTab(newValue)
+        history.push(`/${tabNameToIndex[newValue]}`);
+        setselectedTab(newValue);
         
     };
 
@@ -221,7 +248,6 @@ const Navbar = props => {
                                 )}
                             </Tabs>
                             }
-                            
                             
                             <Button href={stephanCV} target="_blank" rel="noopener noreferrer" className={isMobile ? classes.downloadButtonResponsive: classes.downloadButton} color='secondary' variant='contained'>Download CV</Button>
                             
