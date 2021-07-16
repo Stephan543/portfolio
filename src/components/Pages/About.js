@@ -12,24 +12,29 @@ import EmailIcon from '@material-ui/icons/Email';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      justifyContent: 'center',
-      '& > *': {
-        margin: theme.spacing(1),
-      },
+      backgroundColor: theme.palette.secondary.main,
+      
+      // display: 'flex',
+      // justifyContent: 'center',
+      // '& > *': {
+      //   margin: theme.spacing(1),
+      // },
     },
     layout: {
       width: 'auto',
       marginLeft: theme.spacing(2),
       marginRight: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
       [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
         width: 600,
+        paddingBottom: theme.spacing(2)*2, 
         marginLeft: 'auto',
         marginRight: 'auto',
       },
     },
     heroContent: {
-      padding: theme.spacing(8, 0, 6),
+      backgroundColor: theme.palette.background.default,
+      padding: theme.spacing(8, 0, 0),
     },
     paper: {
       marginTop: theme.spacing(3),
@@ -56,27 +61,26 @@ const About = props => {
 
     return(
       <>
-        <div className={classes.root}>
+        <main className={classes.root}>
 
-        </div>
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container minHeight='400px' maxWidth="sm">
             <Typography component='h1' variant='h2' align='left' color='textPrimary' gutterBottom>
               Welcome!
             </Typography>
-            <Typography variant="h5" align="left" color="textSecondary" paragraph>
+            <Typography variant="h5" align="left" color="textSecondary" style={{minHeight: '15vh'}} paragraph>
               My refined programming portfolio.
             </Typography>
           </Container>
-        </div>
         <WaveBorder lowerColor='#3acbf7'/>
+        </div>
 
-        <main className={classes.layout}>
+        <div className={classes.layout}>
           <Paper className={classes.paper}>
 
-            <div className={classes.titleBlock}>
-              <Avatar alt="Stephan Iskander" src={Pic} className={classes.avatar}/>
-            </div>
+              <div className={classes.titleBlock}>
+                <Avatar alt="Stephan Iskander" src={Pic} className={classes.avatar}/>
+              </div>
               <Typography variant="h5" color='textPrimary' align="center">
               Stephan Iskander
               </Typography>
@@ -95,8 +99,12 @@ const About = props => {
                   <EmailIcon />
                 </IconButton>
               </div>
-              
+              <Typography variant="subtitle1" color='textPrimary' align="left">
+              Hi! I'm Stephan, an outgoing and personable web application developer. One that is self taught and loves collaborating to build really useful tools. I was formally trained and employed as an environmental engineering consultant before I made the deep dive into programming (Check out my Experience page!). If you'd like to connect or chat, send a quick intro email!
+              </Typography>
           </Paper>
+
+        </div>
 
         </main>
       </> 
