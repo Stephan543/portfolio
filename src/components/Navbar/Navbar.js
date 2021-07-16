@@ -147,7 +147,7 @@ const Navbar = props => {
                                         </List>
                                     </Drawer>
                                     <IconButton onClick={()=> setOpenDrawer(!openDrawer)}>
-                                        <MenuIcon />
+                                        <MenuIcon style={{color: 'white'}} />
                                     </IconButton>
                                 </>
                             }
