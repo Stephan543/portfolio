@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(15),
       height: theme.spacing(15),
     },
+    waveBorder: {
+      paddingTop: theme.spacing(4),
+    },
   }));
 
 
@@ -64,7 +67,7 @@ const About = props => {
         <main className={classes.root}>
 
         <div className={classes.heroContent}>
-          <Container minHeight='400px' maxWidth="sm">
+          <Container maxWidth="sm">
             <Typography component='h1' variant='h2' align='left' color='textPrimary' gutterBottom>
               Welcome!
             </Typography>
@@ -72,7 +75,7 @@ const About = props => {
               My refined programming portfolio.
             </Typography>
           </Container>
-        <WaveBorder lowerColor='#3acbf7'/>
+        <WaveBorder upperColor='inherit' lowerColor='#3acbf7' animationNegativeDelay={1} className={classes.waveBorder}/>
         </div>
 
         <div className={classes.layout}>
