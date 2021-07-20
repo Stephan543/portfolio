@@ -1,10 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles';
   
-export const dark = createMuiTheme({
+const dark = createMuiTheme({
   palette: {
     type: 'dark',
     primary: {
-      // Purple and green play nicely together.
       main: 'rgba(73,63,252,1)',
     },
     secondary: {
@@ -14,7 +13,7 @@ export const dark = createMuiTheme({
   // spacing: 24,
 });
 
-export const light = createMuiTheme({
+const light = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
@@ -34,5 +33,6 @@ const themes = {
 }
 
 export default function getTheme(theme){
+  // console.log(themes[theme])
   return themes[theme]
 }

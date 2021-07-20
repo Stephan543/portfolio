@@ -143,7 +143,7 @@ const Navbar = props => {
                                                         <ListItemText key={index}primary={item.title}/>
                                                 </ListItemIcon>
                                             </ListItem>
-                                            ))};
+                                            ))}
                                         </List>
                                     </Drawer>
                                     <IconButton onClick={()=> setOpenDrawer(!openDrawer)}>

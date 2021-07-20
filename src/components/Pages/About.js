@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(8, 0, 0),
     },
     paper: {
+      backgroundColor: theme.palette.background.paper,
       marginTop: theme.spacing(3),
       padding: theme.spacing(2),
       [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const About = props => {
+const About = (props) => {
     const classes = useStyles();
 
     return(

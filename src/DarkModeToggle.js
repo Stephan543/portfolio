@@ -8,21 +8,29 @@ import { useTheme } from '@material-ui/core';
 // import { theme } from './Theme';
 import { createMuiTheme } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
+import { CustomThemeContext } from './CustomThemeProvider';
+import { useContext } from 'react';
 
 const DarkModeToggle = () => {
     // const [theme, setTheme] = useState(true);
     // const appliedTheme = createMuiTheme(theme ? light : dark);
-
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark');
+    const {currentTheme, setTheme} = useContext(CustomThemeContext)
+    const isDark = Boolean(currentTheme === 'dark')
     
-    const handleModeChange = () => {
-        window.localStorage.setItem('appTheme', 'light');
+    const handleModeChange = (event) => {
+        const { checked } = event.target
+        if (checked) {
+            setTheme('dark')
+        } else {
+            setTheme('light')
+        }
     }
 
     return (
         /* <button className="btn btn--small" onClick={this.handleModeChange}>Change Mode</button> */
         <Switch 
         onChange={handleModeChange}
+        checked={isDark}
         icon={<FaMoon />}
         checkedIcon={<FaSun />}
         />

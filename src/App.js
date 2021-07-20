@@ -5,8 +5,6 @@ import { CssBaseline } from '@material-ui/core'
 import { Route, Switch, Redirect  } from 'react-router-dom';
 import CustomThemeProvider from './CustomThemeProvider';
 
-
-
 const App = () => {
 
   return (

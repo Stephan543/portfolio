@@ -11,22 +11,22 @@ export const CustomThemeContext = React.createContext(
 
 const CustomThemeProvider = (props) => {
 
-    const { children } = props;
+    const { children } = props
 
     // Read Current theme from local storage or set to default dark
-    const currentTheme = localStorage.getItem('appTheme') || 'dark';
+    const currentTheme = localStorage.getItem('appTheme') || 'light'
 
     // State to hold the theme type
-    const [themeName, _setThemeName] = useState(currentTheme);
+    const [themeName, _setThemeName] = useState(currentTheme)
 
     // Retrieving the theme name
-    const theme = getTheme(themeName);
+    const theme = getTheme(themeName)
 
     // Setting the local storage
     const setThemeName = (name) => {
-        localStorage.setItem('appTheme', name);
-        _setThemeName(name);
-    };
+        localStorage.setItem('appTheme', name)
+        _setThemeName(name)
+    }
 
     const contextValue = {
         currentTheme: themeName,
@@ -37,7 +37,7 @@ const CustomThemeProvider = (props) => {
         <CustomThemeContext.Provider value={contextValue}>
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </CustomThemeContext.Provider>
-    );
+    )
 }
 
-export default CustomThemeProvider;
+export default CustomThemeProvider
