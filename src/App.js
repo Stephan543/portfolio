@@ -8,13 +8,10 @@ import CustomThemeProvider from './CustomThemeProvider';
 const App = () => {
 
   return (
-    <CustomThemeProvider>
-      <CssBaseline/>
       <Switch>
         <Redirect exact from="/" to="/about"></Redirect>
         <Route exact path="/:page?" render={props => <Navbar {...props}/>}/>
       </Switch>      
-    </CustomThemeProvider> 
   );
 }
 
