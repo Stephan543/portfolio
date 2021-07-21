@@ -1,15 +1,11 @@
-import React, { Component, useState } from 'react'
-import './style.scss'
+import React from 'react'
 import Switch from '@material-ui/core/Switch';
-import {FaMoon, FaSun} from 'react-icons/fa'
-// import { theme } from './Theme.js';
-import { useMediaQuery } from '@material-ui/core';
-import { useTheme } from '@material-ui/core';
-// import { theme } from './Theme';
-import { createMuiTheme } from '@material-ui/core';
-import { withStyles } from '@material-ui/styles';
+import {FaMoon, FaSun} from 'react-icons/fa';
+import Brightness7Icon from '@material-ui/icons/Brightness7';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 import { CustomThemeContext } from './CustomThemeProvider';
 import { useContext } from 'react';
+import { IconButton } from '@material-ui/core';
 
 const DarkModeToggle = () => {
     // const [theme, setTheme] = useState(true);
@@ -27,13 +23,17 @@ const DarkModeToggle = () => {
     }
 
     return (
-        /* <button className="btn btn--small" onClick={this.handleModeChange}>Change Mode</button> */
+        
         <Switch 
         onChange={handleModeChange}
         checked={isDark}
-        icon={<FaMoon />}
-        checkedIcon={<FaSun />}
+        icon={<Brightness4Icon />}
+        checkedIcon={<Brightness7Icon />}
+        edge="end"
+        size="medium"
         />
+
+
     )
 }
 
