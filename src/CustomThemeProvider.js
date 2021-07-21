@@ -12,7 +12,7 @@ export const CustomThemeContext = React.createContext(
 const CustomThemeProvider = (props) => {
 
     const { children } = props
-
+     
     // Read Current theme from local storage or set to default dark
     const currentTheme = localStorage.getItem('appTheme') || 'light'
 
