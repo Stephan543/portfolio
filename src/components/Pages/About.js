@@ -103,7 +103,7 @@ const About = (props) => {
                   <EmailIcon />
                 </IconButton>
               </div>
-              <Typography variant="subtitle1" color='textPrimary' align="left">
+              <Typography variant="subtitle1" color='textPrimary' align="center">
               Hi! I'm Stephan, an outgoing and personable web application developer. One that is self taught and loves collaborating to build really useful tools. I was formally trained and employed as an environmental engineering consultant before I made the deep dive into programming (Check out my Experience page!). If you'd like to connect or chat, send a quick intro email!
               </Typography>
           </Paper>
