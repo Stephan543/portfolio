@@ -15,7 +15,7 @@ import { withRouter } from 'react-router';
 import About from "../Pages/About";
 import {Experience} from "../Pages/Experience";
 import {Skills} from "../Pages/Skills";
-import {Projects} from "../Pages/Projects";
+import Projects from "../Pages/Projects";
 import DarkModeToggle from '../../DarkModeToggle';
 
 import stephanCV from '../../Static/Stephan_Iskander_Resume.pdf';
