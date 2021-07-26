@@ -2,8 +2,8 @@
     {
         "id": 0,
         "title": "Local Library Backend",
-        "photo": "",
-        "link":"",
+        "photo": "local-library.JPG",
+        "link": "https://github.com/Stephan543/mdnLocalLibrary",
         "tags": ["Node.js","Express","MVC", "MongoDB", "Azure"],
         "summary": [
             "Line 1",
