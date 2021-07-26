@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import Pic from './../../Static/Headshot.PNG';
+import Pic from '../../Static/photos/Headshot.PNG';
 import WaveBorder from '../Wave.js';
 import {Container, Paper, Typography} from '@material-ui/core'
 
