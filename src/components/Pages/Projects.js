@@ -28,11 +28,12 @@ const useStyles = makeStyles((theme) => ({
   },
   layout: {
     width: 'auto',
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(18),
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
+      width: 800,
+      marginTop: theme.spacing(2)*12,
       paddingBottom: theme.spacing(2)*2, 
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -44,12 +45,26 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: 'auto',
   },
+  header: {
+    background: theme.palette.primary.main,
+    color: "#fff",
+    padding: theme.spacing(2),
+  },
+  content: {
+    padding: theme.spacing(4),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(4),
+  },
+  moreContent: {
+    paddingTop: theme.spacing(4),
+  }
 }));
 
 export default function Projects() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [more, setMore] = React.useState(true);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -58,19 +73,34 @@ export default function Projects() {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+  
+  const handleMore = () => {
+    setMore(!more);
+  }
 
   return (
     <>
     <div className={classes.layout}>
-      <Paper style={{minHeight: 400}} elevation={3}>
+      <Paper elevation={3}>
         <Paper square elevation={0} className={classes.header}>
-          <Typography>{projects[activeStep].title}</Typography>
+          <Typography variant='h4' align='center'>{projects[activeStep].title}</Typography>
         </Paper>
         <img
           className={classes.img}
           src={imgArr[activeStep]}
           alt='img not found'
         />
+        <div className={classes.content}>
+          <Typography variant='h6'>Project Summary:</Typography>
+          <Typography variant='body1'>{projects[activeStep].summary}</Typography>
+          {
+            more &&
+            <div className={classes.moreContent}>
+              <Typography variant='h6'>Takeaways:</Typography>
+              <Typography variant='body1'>{projects[activeStep].future}</Typography>
+            </div>
+          }
+        </div>
         <MobileStepper
           variant="dots"
           steps={4}
