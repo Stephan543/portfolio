@@ -2,7 +2,7 @@
     {
         "id": 0,
         "title": "Local Library Backend",
-        "photo": "local-library.JPG",
+        "photo": "../../Static/photos/local-library.jpg",
         "link": "https://github.com/Stephan543/mdnLocalLibrary",
         "tags": ["Node.js","Express","MVC", "MongoDB", "Azure"],
         "summary": [
@@ -19,7 +19,7 @@
     {
         "id": 1,
         "title": "Time Picker",
-        "photo": "",
+        "photo": "../../Static/photos/time-picker.jpg",
         "link":"",
         "tags": ["Node.js","JavaScript", "googleapis"],
         "summary": [

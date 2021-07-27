@@ -8,8 +8,17 @@ import { Grid, Paper } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 import projects from '../../Static/projects.json';
+import img0 from '../../Static/photos/local-library.jpg';
+import img1 from "../../Static/photos/time-picker.JPG";
+import img2 from "../../Static/photos/this-website.JPG";
+import img3 from "../../Static/photos/recipe-website.JPG";
 
-import testPhoto from '../../Static/photos/local-library.jpg';
+const imgArr = [
+  img0,
+  img1,
+  img2,
+  img3
+]
 
 const useStyles = makeStyles((theme) => ({
   stepper: {
@@ -30,11 +39,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    height: 255,
-    maxWidth: 400,
     overflow: 'hidden',
     display: 'block',
     width: '100%',
+    height: 'auto',
   },
 }));
 
@@ -60,7 +68,7 @@ export default function Projects() {
         </Paper>
         <img
           className={classes.img}
-          src={testPhoto}
+          src={imgArr[activeStep]}
           alt='img not found'
         />
         <MobileStepper
