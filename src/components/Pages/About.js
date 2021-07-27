@@ -13,12 +13,6 @@ import EmailIcon from '@material-ui/icons/Email';
 const useStyles = makeStyles((theme) => ({
     root: {
       backgroundColor: theme.palette.secondary.main,
-      
-      // display: 'flex',
-      // justifyContent: 'center',
-      // '& > *': {
-      //   margin: theme.spacing(1),
-      // },
     },
     layout: {
       width: 'auto',
