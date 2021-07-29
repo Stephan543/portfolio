@@ -4,14 +4,16 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, IconButton, Paper, Chip } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 import projects from '../../Static/projects.json';
 import img0 from '../../Static/photos/local-library.jpg';
 import img1 from "../../Static/photos/time-picker.JPG";
 import img2 from "../../Static/photos/this-website.JPG";
 import img3 from "../../Static/photos/recipe-website.JPG";
+import { jsxAttribute } from '@babel/types';
 
 const imgArr = [
   img0,
@@ -28,12 +30,12 @@ const useStyles = makeStyles((theme) => ({
   },
   layout: {
     width: 'auto',
-    marginTop: theme.spacing(18),
+    marginTop: theme.spacing(2)*4,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
       width: 800,
-      marginTop: theme.spacing(2)*12,
+      marginTop: theme.spacing(2)*5,
       paddingBottom: theme.spacing(2)*2, 
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -55,8 +57,17 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(4),
   },
-  moreContent: {
+  newSection: {
     paddingTop: theme.spacing(4),
+  },
+  chipList: {
+    paddingTop: theme.spacing(4),
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
+  },
+  chip:{
+    margin: theme.spacing(0.5),
   }
 }));
 
@@ -91,11 +102,23 @@ export default function Projects() {
           alt='img not found'
         />
         <div className={classes.content}>
-          <Typography variant='h6'>Project Summary:</Typography>
-          <Typography variant='body1'>{projects[activeStep].summary}</Typography>
+          <Typography variant='h6' align='center'>
+            <Button variant='contained' color="secondary" href={projects[activeStep].link} target="_blank" rel="noopener external noreferrer">
+                View Open Source Code <GitHubIcon style={{paddingLeft: 5}}/>
+            </Button>
+          </Typography>
+          <div  className={classes.chipList}>
+            {
+              projects[activeStep].tags.map(tag => {return(<Chip className={classes.chip} label={tag}/>)})
+            }
+          </div>
+          <div className={classes.newSection}>
+            <Typography variant='h6'>Project Summary:</Typography>
+            <Typography variant='body1'>{projects[activeStep].summary}</Typography>
+          </div>
           {
             more &&
-            <div className={classes.moreContent}>
+            <div className={classes.newSection}>
               <Typography variant='h6'>Takeaways:</Typography>
               <Typography variant='body1'>{projects[activeStep].future}</Typography>
             </div>
