@@ -74,7 +74,7 @@ const About = (props) => {
         </div>
 
         <div className={classes.layout}>
-          <Paper className={classes.paper}>
+          <Paper elevation={24} className={classes.paper}>
 
               <div className={classes.titleBlock}>
                 <Avatar alt="Stephan Iskander" src={Pic} className={classes.avatar}/>
