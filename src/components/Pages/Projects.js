@@ -4,7 +4,7 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { Grid, IconButton, Paper, Chip } from '@material-ui/core';
+import { Grid, IconButton, Paper, Chip, Card, CardContent } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
@@ -13,7 +13,6 @@ import img0 from '../../Static/photos/local-library.jpg';
 import img1 from "../../Static/photos/time-picker.JPG";
 import img2 from "../../Static/photos/this-website.JPG";
 import img3 from "../../Static/photos/recipe-website.JPG";
-import { jsxAttribute } from '@babel/types';
 
 const imgArr = [
   img0,
@@ -62,12 +61,16 @@ const useStyles = makeStyles((theme) => ({
   },
   chipList: {
     paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap'
   },
   chip:{
     margin: theme.spacing(0.5),
+  },
+  card: {
+
   }
 }));
 
@@ -92,7 +95,7 @@ export default function Projects() {
   return (
     <>
     <div className={classes.layout}>
-      <Paper elevation={3}>
+      <Paper elevation={24}>
         <Paper square elevation={0} className={classes.header}>
           <Typography variant='h4' align='center'>{projects[activeStep].title}</Typography>
         </Paper>
@@ -112,17 +115,23 @@ export default function Projects() {
               projects[activeStep].tags.map(tag => {return(<Chip className={classes.chip} label={tag}/>)})
             }
           </div>
-          <div className={classes.newSection}>
-            <Typography variant='h6'>Project Summary:</Typography>
-            <Typography variant='body1'>{projects[activeStep].summary}</Typography>
-          </div>
-          {
-            more &&
-            <div className={classes.newSection}>
-              <Typography variant='h6'>Takeaways:</Typography>
-              <Typography variant='body1'>{projects[activeStep].future}</Typography>
+          <Card className={classes.card}>
+            <CardContent>
+            <div gutterBottom>
+              <Typography variant='h6'>Project Summary:</Typography>
+              {
+                projects[activeStep].summary.map(x=> <Typography variant='body1' component='p'>{x}</Typography> )
+              }
             </div>
-          }
+            {
+              more &&
+              <div className={classes.newSection}>
+                <Typography variant='h6'>Takeaways:</Typography>
+                <Typography variant='body1' component='p'>{projects[activeStep].future}</Typography>
+              </div>
+            }
+            </CardContent>
+          </Card>
         </div>
         <MobileStepper
           variant="dots"
