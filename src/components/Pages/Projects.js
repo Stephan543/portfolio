@@ -2,11 +2,15 @@ import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
+import clsx from 'clsx';
+
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { Grid, IconButton, Paper, Chip, Card, CardContent } from '@material-ui/core';
+import { IconButton, Paper, Chip, Card, CardContent, CardActions } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 import projects from '../../Static/projects.json';
 import img0 from '../../Static/photos/local-library.jpg';
@@ -71,14 +75,24 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
 
+  },
+  expand:{
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
   }
 }));
 
 export default function Projects() {
   const classes = useStyles();
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [more, setMore] = React.useState(true);
+  const [activeStep, setActiveStep] = React.useState(0); // State for projects JSON file
+  const [expanded, setExpanded] = React.useState(false); //
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -88,8 +102,8 @@ export default function Projects() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
   
-  const handleMore = () => {
-    setMore(!more);
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
   }
 
   return (
@@ -107,30 +121,40 @@ export default function Projects() {
         <div className={classes.content}>
           <Typography variant='h6' align='center'>
             <Button variant='contained' color="secondary" href={projects[activeStep].link} target="_blank" rel="noopener external noreferrer">
-                View Open Source Code <GitHubIcon style={{paddingLeft: 5}}/>
+                View Open Source Code <GitHubIcon />
             </Button>
           </Typography>
           <div  className={classes.chipList}>
             {
-              projects[activeStep].tags.map(tag => {return(<Chip className={classes.chip} label={tag}/>)})
+              projects[activeStep].tags.map(tag => {return(<Chip key={tag} className={classes.chip} label={tag}/>)})
             }
           </div>
-          <Card className={classes.card}>
+          <Card variant="outlined" className={classes.card}>
             <CardContent>
-            <div gutterBottom>
               <Typography variant='h6'>Project Summary:</Typography>
               {
-                projects[activeStep].summary.map(x=> <Typography variant='body1' component='p'>{x}</Typography> )
+                projects[activeStep].summary.map(x => <Typography key={x} variant='body2' component='p'>{x}</Typography> )
               }
-            </div>
-            {
-              more &&
-              <div className={classes.newSection}>
-                <Typography variant='h6'>Takeaways:</Typography>
-                <Typography variant='body1' component='p'>{projects[activeStep].future}</Typography>
-              </div>
-            }
+              {
+                expanded &&
+                <div className={classes.newSection}>
+                  <Typography variant='h6'>Takeaways:</Typography>
+                  {
+                  projects[activeStep].future.map(x => <Typography key={x} variant='body2' component='p'>{x}</Typography> )
+                  }              
+                </div>
+              }
             </CardContent>
+            <CardActions>
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })} // Conditional styling depended on state
+                onClick={handleExpandClick}
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
           </Card>
         </div>
         <MobileStepper
