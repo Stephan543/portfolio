@@ -6,14 +6,14 @@
         "link": "https://github.com/Stephan543/mdnLocalLibrary",
         "tags": ["Node.js","Express","MVC", "MongoDB", "Azure"],
         "summary": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "This project is a simple library system, that can create, read, update and delete information about books, copies, status and authors. ",
+            "Implementing Routes, controllers, models, views and popolating a Mongo database on Azure was an incredible learning experience. Through this project I realised my interest pique towards the server side.",
+            "Check out the deployed project link in my open source README file!"
         ],
         "future": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "I would like to deploy similair projects to a dedicated private server. The intention behind this is to learn how to operate on both Platform and Infastracture as-a-Service (PaaS and IaaS).",
+            "Given more time I would like to make it a comprehensive front end to style up the views. Probably with React and Tailwind(New tech to me).",
+            "I will build a Unix machine that I can perform server side programming on. Either a Raspberry Pi or an old Computer."
         ]
     },
     {
@@ -23,14 +23,14 @@
         "link":"",
         "tags": ["Node.js","JavaScript", "googleapis"],
         "summary": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "This project is a script that can access the Google Calendar API via OAuth 2.0 and return an array of the users empty time slots.",
+            "The tricky part for me was that the API only returned existing meeting times in a given window(1 week) but I needed to return an array of full meeting times. The other constraints were: specific daily start/end(8am-8pm EST) times and a preferred time chunk(30mins- 1hr) to search.",
+            "In the end I learned alot about how to process dates and ended up implementing a recursive algorithms that populates an array for all available dates within the constraints."
         ],
         "future": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "Combine this solution with a completely styled front end solution to use as a plug-in for my websites",
+            "Give users the option to view the available array in dynamic 'week' view. Allow users to select 30min to 1hr available time meetings that forwards a google calendar email request to me.",
+            "Optimize and Deploy the project as a light weight plug-in that can be added to my websites."
         ]
     },
     {
