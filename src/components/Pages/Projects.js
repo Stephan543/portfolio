@@ -131,18 +131,18 @@ export default function Projects() {
           </div>
           <Card variant="outlined" className={classes.card}>
             <CardContent>
-              <Typography variant='h6'>Project Summary:</Typography>
+              <Typography paragraph variant='h6'>Project Summary:</Typography>
               {
-                projects[activeStep].summary.map(x => <Typography key={x} variant='body2' component='p'>{x}</Typography> )
+                projects[activeStep].summary.map(x => <Typography key={x} variant='body2' component='p' paragraph>{x}</Typography> )
               }
               {
                 expanded &&
-                <div className={classes.newSection}>
-                  <Typography variant='h6'>Takeaways:</Typography>
+                <>
+                  <Typography paragraph variant='h6'>Future:</Typography>
                   {
-                  projects[activeStep].future.map(x => <Typography key={x} variant='body2' component='p'>{x}</Typography> )
-                  }              
-                </div>
+                  projects[activeStep].future.map(x => <Typography key={x} variant='body2' component='p' paragraph>{x}</Typography> )
+                  }       
+                </>  
               }
             </CardContent>
             <CardActions>
