@@ -54,17 +54,17 @@
         "id": 3,
         "title": "Recipe Website",
         "photo": "",
-        "link":"",
+        "link":"https://github.com/Stephan543/PersonalWebsite",
         "tags": ["HTML5","PHP","JavaScript", "CSS"],
         "summary": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "This website allows me to store my go to recipes and create adjustments to the quantities based on the desired recipe yield.",
+            "Up until the start of this project, I knew rumours about programming and webdevelopment. This was clear when I jumped into the project development. I am proud to say that now I have experiential knowledge in web development.",
+            "One of the biggest challenges was the responsiveness on different devices. Every issue a user had, meant an addition to the code base in order to catch the edge case. This is why my CSS files are so large."
         ],
         "future": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "In the future I will redesign and deploy this website in a full-stack fashion. Likely using the MERN stack likely using a free host like Heroku.",
+            "The load time for the image pages are pretty slow at the moment, but I hope this will be solved when importing the images into react.",
+            "The styling could use some work and as well a more holistic approach to responsivenes will be used in the future. It is likely I will use Tailwind or Material-UI with React."
         ]
     }
 
