@@ -35,19 +35,19 @@
     },
     {
         "id": 2,
-        "title": "This.Website!",
+        "title": "My Portfolio (This Website!)",
         "photo": "",
         "link":"",
         "tags": ["React","Material-UI","JavaScript", "CSS"],
         "summary": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "This project uses hooks for light and dark mode themes, cards and navbars(combined with react-router).",
+            "The intention behind this project was to develop my React skills and serve a static and stateful website to those that are interested.",
+            "I wanted to learn the basics UI kit so I chose material and went with a CSS in JS method(Including media queries for responsiveness). Some of the material ui components I used were layouts, themes, tabs, buttons and cards."
         ],
         "future": [
-            "Line 1",
-            "Line 2",
-            "Line 3"
+            "I personally find visually creative tasks pretty difficuly. So I would like to redesign the palette and layout in the future.",
+            "After speaking to some friends in industry, I would to learn Tailwind CSS in newer versions, mainly for practice.",
+            "While designing this project I debated making this a full-stack application, one where I host my time viewer app. I would like to purchase a VPS, so I can serve my schedule data dynamically for users."
         ]
     },
     {
