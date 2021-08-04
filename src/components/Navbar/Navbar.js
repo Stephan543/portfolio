@@ -13,7 +13,7 @@ import { Tab, Tabs } from '@material-ui/core';
 import { withRouter } from 'react-router';
 
 import About from "../Pages/About";
-import {Experience} from "../Pages/Experience";
+import Experience from "../Pages/Experience";
 import {Skills} from "../Pages/Skills";
 import Projects from "../Pages/Projects";
 import DarkModeToggle from '../../DarkModeToggle';
