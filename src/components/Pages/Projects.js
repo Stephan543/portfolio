@@ -120,8 +120,8 @@ export default function Projects() {
         />
         <div className={classes.content}>
           <Typography variant='h6' align='center'>
-            <Button variant='contained' color="secondary" href={projects[activeStep].link} target="_blank" rel="noopener external noreferrer">
-                View Open Source Code <GitHubIcon />
+            <Button variant='contained' color="secondary"  startIcon={<GitHubIcon/>} href={projects[activeStep].link} target="_blank" rel="noopener external noreferrer">
+                View Open Source Code 
             </Button>
           </Typography>
           <div  className={classes.chipList}>
