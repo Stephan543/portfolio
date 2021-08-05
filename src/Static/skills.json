@@ -1,0 +1,48 @@
+[
+    {
+        "id" : 0,
+        "title": "Workflows",
+        "currentItems": [
+            "VS Code",
+            "GitHub",
+            "Bash",
+            "Windows"
+        ],
+        "futureItems": [
+            "Linux",
+            "Mac",
+            "Docker",
+            "Kubernetes",
+            "VIM"
+        ]
+    },
+    {
+        "id" : 1,
+        "title": "Languages",
+        "currentItems": [
+            "JavaScript",
+            "PHP",
+            "HTML/CSS"
+        ],
+        "futureItems":[
+            "Python",
+            "Go"
+        ]
+    },
+    {
+        "id" : 2,
+        "title": "Frameworks",
+        "currentItems": [
+            "Node.js",
+            "Express.js",
+            "React",
+            "Material-UI"
+        ],
+        "futureItems": [
+            "Vue.js",
+            "Angular",
+            "Django",
+            "Flask"
+        ]
+    }
+]
